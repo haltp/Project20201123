@@ -2,7 +2,7 @@ package com.yedam.address;
 
 import java.util.Scanner;
 
-public class FriendAddress {
+public class FriendAddress1124understand {
 
 	static Scanner scn = new Scanner(System.in);
 	static Friend[] friends = new Friend[100];
@@ -12,7 +12,7 @@ public class FriendAddress {
 
 		while (true) {
 			System.out.println("----------------------------------------------------");
-			System.out.println("1.친구등록 2.학교친구 3.회사친구 4.전체리스트 5.검색(이름) 6.종료");
+			System.out.println("11.친구등록 22.학교친구 33.회사친구 44.전체리스트 55.검색(이름) 66.종료");
 			System.out.println("----------------------------------------------------");
 			System.out.print("선택> ");
 			int selectNo = scn.nextInt();
@@ -38,43 +38,43 @@ public class FriendAddress {
 	// 1. 친구등록
 	public static void addFriend() {
 		System.out.println("친구이름: ");
-		String name = scn.nextLine();
+		String name1 = scn.nextLine();
 		System.out.println("전화번호: ");
-		String phone = scn.nextLine();
-		Friend frnd = new Friend(name, phone);
-		insertFriend(frnd);
+		String phone1 = scn.nextLine();
+		Friend frnd1 = new Friend(name1, phone1);
+		insertFriend(frnd1);
 	}
 
 	// 2. 학교친구
 	public static void addUnivFriend() {
 		System.out.println("친구이름: ");
-		String name = scn.nextLine();
+		String name2 = scn.nextLine();
 		System.out.println("전화번호: ");
-		String phone = scn.nextLine();
+		String phone2 = scn.nextLine();
 		System.out.println("학교이름: ");
-		String univ = scn.nextLine();
+		String univ2 = scn.nextLine();
 		System.out.println("전공정보: ");
-		String major = scn.nextLine();
-		UnivFriend frnd = new UnivFriend(name, phone);
-		frnd.setUniv(univ);
-		frnd.setMajor(major);
-		insertFriend(frnd);
+		String major2 = scn.nextLine();
+		UnivFriend frnd2 = new UnivFriend(name2, phone2);
+		frnd2.setUniv(univ2);
+		frnd2.setMajor(major2);
+		insertFriend(frnd2);
 	}
 
 	// 3.회사친구
 	public static void addCompFriend() {
 		System.out.println("친구이름: ");
-		String name = scn.nextLine();
+		String name3 = scn.nextLine();
 		System.out.println("전화번호: ");
-		String phone = scn.nextLine();
+		String phone3 = scn.nextLine();
 		System.out.println("회사이름: ");
-		String company = scn.nextLine();
+		String company3 = scn.nextLine();
 		System.out.println("부서정보: ");
-		String department = scn.nextLine();
-		CompFriend frnd = new CompFriend(name, phone);
-		frnd.setCompany(company);
-		frnd.setDepartment(department);
-		insertFriend(frnd);
+		String department3 = scn.nextLine();
+		CompFriend frnd3 = new CompFriend(name3, phone3);
+		frnd3.setCompany(company3);
+		frnd3.setDepartment(department3);
+		insertFriend(frnd3);
 	}
 
 	// 4. 리스트
@@ -89,21 +89,21 @@ public class FriendAddress {
 	// 5. 한건 조회
 	public static void searchFriend() {
 		System.out.print("이름 선택> ");
-		String name = scn.nextLine();
+		String name5 = scn.nextLine();
 		for (int i = 0; i < friends.length; i++) {
-			if (friends[i] != null && name.equals(friends[i].getName()))
+			if (friends[i] != null && name5.equals(friends[i].getName()))
 				friends[i].showFriendInfo();
 		}
 	}
 
 	// 7. 한건 입력
-	public static void insertFriend(Friend Friend) {
+	public static void insertFriend(Friend Friend7) {
 		for (int i = 0; i < friends.length; i++) {
 			if (friends[i] == null) {
-				friends[i] = Friend;
+				friends[i] = Friend7;
 				break;
 			}
 		}
 	}
 
-} // end of class
+} // end of classpackage com.yedam.address;
