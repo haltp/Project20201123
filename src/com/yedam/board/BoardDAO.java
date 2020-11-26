@@ -113,7 +113,7 @@ public class BoardDAO {
 	// 5. 수정
 	public void updateBo(BoardVO vo) {
 		conn = DAO.getConnection();
-		String sql = "update board set title = ? content =? where board_no =?";
+		String sql = "update board set title = ?, content =?, creation_date = sysdate  where board_no =?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getTitle());
