@@ -5,9 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import java.util.List;
+
 import com.yedam.common.DAO;
-import com.yedam.db.Employee;
 
 public class EmpDAO {
 	Connection conn = null;
@@ -31,7 +32,7 @@ public class EmpDAO {
 				vo.setLastName(rs.getString("email"));
 				vo.setLastName(rs.getString("phone_number"));
 				vo.setLastName(rs.getString("hire_date"));
-				
+
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -104,7 +105,7 @@ public class EmpDAO {
 
 	// 한건수정
 	public void updateEmp(EmployeeVO vo) {
-		
+
 		if (vo.getSalary() != 0) {
 			sql = "update emp1 " + "set email = nvl('" + vo.getEmail() + "',email)" + "   ,phone_number =nvl('"
 					+ vo.getPhoneNumber() + "',phone_number)" + "   ,salary =nvl('" + vo.getSalary() + "',salary)"
@@ -144,4 +145,34 @@ public class EmpDAO {
 			e.printStackTrace();
 		}
 	}
+
+	// 부서별 조회
+	public List<EmployeeVO> getDeptList(String dept) {
+		conn = DAO.getConnection();
+		sql = "select * from emp1 e, departments d where e.department_id = d.department_id and d.department_name=?";
+//		sql = "select * from emp1 where department_id = (select DEPARTMENT_ID from DEPARTMENTS where department_name = ?;
+		List<EmployeeVO> list = new ArrayList<EmployeeVO>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dept);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				EmployeeVO vo = new EmployeeVO();
+				vo.setEmployeeId(rs.getInt("employee_id"));
+				vo.setFirstName(rs.getString("first_name"));
+				vo.setLastName(rs.getString("last_name"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+
 }

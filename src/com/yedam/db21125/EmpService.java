@@ -8,4 +8,5 @@ public interface EmpService {
 	public void insertEmp(EmployeeVO empVO); // 입력
 	public void updateEmp(EmployeeVO empVO); // 수정
 	public void deleteEmp(EmployeeVO vo); // 삭제
+	public List<EmployeeVO> getDeptList(String dept); //IT, Purchasing, Shipping
 }

@@ -31,4 +31,9 @@ public class EmpServiceImpl implements EmpService {
 		dao.deleteEmp(empVO);
 	}
 
+	@Override
+	public List<EmployeeVO> getDeptList(String dept) {
+		return dao.getDeptList(dept);
+	}
+
 }

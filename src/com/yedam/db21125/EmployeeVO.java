@@ -91,6 +91,7 @@ public class EmployeeVO {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+	
 
 	public void showEmpInfo() {
 		System.out.println("사원번호: " + employeeId + ", firstName: " + firstName + ", lastName: " + lastName);
